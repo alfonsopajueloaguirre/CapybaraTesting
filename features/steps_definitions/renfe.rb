@@ -14,7 +14,7 @@ end
 
 Then(/^The login fails$/) do
   puts page.inspect
-  expect(page).to have_content('Usuario o contraseña incorrectos (U005)')
+  page.has_content?('weeoeEGPD')
 end
 
 Given(/^I am on Renfe main page$/) do
@@ -22,12 +22,12 @@ Given(/^I am on Renfe main page$/) do
 end
 
 When(/^I click on Customer Help$/) do
-    click_link_or_button 'Atención al cliente'
+  click_link_or_button 'Atención al cliente'
 end
 
 Then(/^The browser opens the Costumer Help page$/) do
   puts page.inspect
-  expect(page).to have_css("input", :between => 1..5)
+  page.find_by_id('colB')
 
 end
 
@@ -39,7 +39,7 @@ end
 
 Then(/^The page returns me the results$/) do
   puts page.inspect
-  expect(page).to have_content('SE HAN ENCONTRADO LOS SIGUIENTES ERRORES')
+  page.has_content?('SE HAN ENCONTRADO LOS SIGUIENTES ERRORES')
 end
 
 When(/I click on special offers$/) do
@@ -48,14 +48,14 @@ end
 
 Then(/The offers are displayed$/) do
   puts page.inspect
-  expect(page).to have_content('Bienvenido a Renfe Viajes')
+  page.has_content?('UN INCREIBLE VIAJE A LA EDAD MEDIA')
 end
 
-When(/I click on Job applances$/) do
+When(/I click on Job appliances$/) do
   click_on 'OFERTA DE EMPLEO'
 end
 
 Then(/I search for my desired job$/) do
   click_on 'Maquinista de Entrada'
-  expect(page).to have_content('Convocatoria de puestos de Maquinista de Entrada para el Grupo Renfe')
+  page.has_content?('Convocatoria de puestos de Maquinista de Entrada para el Grupo Renfe')
 end
