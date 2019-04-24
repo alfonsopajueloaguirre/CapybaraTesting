@@ -20,13 +20,13 @@ Feature: Renfe
     Then The page returns me the results
 
   @Renfe @Renfe4
-  Scenario: Special Offers
+  Scenario: Language change
     Given I am on Renfe main page
-    When I click on special offers
-    Then The offers are displayed
+    When I click on Welcome
+    Then The english page is displayed
 
   @Renfe @Renfe5
-  Scenario: Cercanias Alcala de Henares
+  Scenario: Job Hunting
     Given I am on Renfe main page
     When I click on Job appliances
     Then I search for my desired job

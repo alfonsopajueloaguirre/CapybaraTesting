@@ -13,6 +13,7 @@ When(/^I log as admin$/) do
 end
 
 Then(/^The login fails$/) do
+  sleep 3
   puts page.inspect
   page.has_content?('weeoeEGPD')
 end
@@ -22,13 +23,14 @@ Given(/^I am on Renfe main page$/) do
 end
 
 When(/^I click on Customer Help$/) do
+  sleep 3
   click_link_or_button 'Atención al cliente'
 end
 
 Then(/^The browser opens the Costumer Help page$/) do
+  sleep 3
   puts page.inspect
   page.find_by_id('colB')
-
 end
 
 When(/^I search for a travel from Madrid to Barcelona$/) do
@@ -38,24 +40,28 @@ When(/^I search for a travel from Madrid to Barcelona$/) do
 end
 
 Then(/^The page returns me the results$/) do
+  sleep 3
   puts page.inspect
   page.has_content?('SE HAN ENCONTRADO LOS SIGUIENTES ERRORES')
 end
 
-When(/I click on special offers$/) do
-  click_on 'OFERTAS'
+When(/I click on Welcome/) do
+  click_on 'Welcome'
 end
 
-Then(/The offers are displayed$/) do
+Then(/The english page is displayed$/) do
+  sleep 3
   puts page.inspect
-  page.has_content?('UN INCREIBLE VIAJE A LA EDAD MEDIA')
+  page.has_content?('JOURNEY DATE')
 end
 
 When(/I click on Job appliances$/) do
   click_on 'OFERTA DE EMPLEO'
+  sleep 3
 end
 
 Then(/I search for my desired job$/) do
   click_on 'Maquinista de Entrada'
+  sleep 3
   page.has_content?('Convocatoria de puestos de Maquinista de Entrada para el Grupo Renfe')
 end
